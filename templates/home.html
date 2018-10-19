@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> Sistema de Vendas </title>
+</head>
+<body>
+	{%if user.is_authenticated %}
+		<a href="{% url 'sisevento:cadastro' %}"> Criar Atividade</a>
+		<a href="{% url 'sisevento:cadastro' %}"> Ver Atividade </a>
+		<a href="{% url 'sisevento:logout' %}"> Sair </a>
+	{% else %}
+		<a href="{% url 'sisevento:home' %}"> Home</a>
+		<a href="{% url 'sisevento:cadastro' %}"> Cadastro </a>
+		<a href="{% url 'sisevento:login' %}"> Login </a>
+	{%endif%}
+
+
+</body>
+</html>
