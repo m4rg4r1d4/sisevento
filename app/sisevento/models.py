@@ -44,8 +44,18 @@ class Atividade(models.Model):
     (1, 'Palestra'),
     (2, 'Minicurso')
 )
+    nomeatividade = models.CharField (max_length = 100, verbose_name='Nome da Atividade')
     criador = models.ForeignKey (UUIDUser, on_delete = models.CASCADE, related_name='atividade', verbose_name='criador')
     palestrante = models.CharField (max_length = 100, verbose_name='Criador')
     duracao = models.CharField (max_length = 100, verbose_name='Duração')
     data = models.DateTimeField (auto_now = False, auto_now_add = False)
     tipo = models.IntegerField (choices = types)
+
+    def __str__(self):
+        return self.nomeatividade
+
+class Eventos (models.Model):
+    criador = models.ForeignKey (UUIDUser, on_delete = models.CASCADE, related_name='eventos', verbose_name='criador')
+    atividade = models.ForeignKey (Atividade, on_delete = models.CASCADE, related_name='eventos', verbose_name='atividade')
+    descricao = models.TextField (verbose_name='Descricao')
+    nome = models.CharField (max_length = 100, verbose_name='Nome')

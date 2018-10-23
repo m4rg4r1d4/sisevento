@@ -11,35 +11,16 @@ urlpatterns = [
 
 	path ('cadastro/', views.UserCreateView.as_view(), name='cadastro'),
 
+	path ('atividade/', views.Atividade.as_view(), name='atividade'),
+
+	path ('veratividade/', views.Veratividade.as_view(), name='veratividade'),
+
+	path ('eventos/', views.Eventos.as_view(), name='eventos'),
+
+	path ('listareventos/', views.ListEvento.as_view(), name='listareventos'),
+
 	path ('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
 
 	path ('logout/', auth_views.LogoutView.as_view(), name='logout'),
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	# path('', views.HomeView.as_view(), name='home'),
-
-	# path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
-
-	# path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-
-	
 ]

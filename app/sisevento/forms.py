@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from .models import UUIDUser, Atividade
+from .models import UUIDUser, Atividade, Eventos
 
 # User: create
 # - - - - - - - - - - - - - - - - - - -
@@ -25,10 +25,21 @@ class UUIDUserForm(forms.ModelForm):
 class Atividade (forms.ModelForm): 
     class Meta: 
         model = Atividade
-        fields  = ('palestrante', 'duracao', 'data', 'tipo')
+        fields  = ('nomeatividade', 'palestrante', 'duracao', 'data', 'tipo')
         labels = {
-        'palestrante': 'Palestra',
+        'nomeatividade': 'Nome da Atividade',
+        'palestrante': 'Palestrante',
         'duracao': 'Duração',
         'data': 'Data',
         'tipo': 'Tipo',
+    }
+
+class Evento(forms.ModelForm): 
+    class Meta: 
+        model = Eventos
+        fields  = ('atividade', 'descricao', 'nome')
+        labels = {
+        'atividade': 'Atividade',
+        'descricao': 'Descrição',
+        'nome': 'Nome',
     }

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ver atividade</title>
+</head>
+<body>
+{%for x in object_list%}
+	{%if request.user == x.criador%}
+		{{x.palestrante}}
+		{{x.duracao}}
+		{{x.data}}
+		{{x.tipo}} 
+	{%endif%}
+{%endfor%}
+</body>
+</html>
